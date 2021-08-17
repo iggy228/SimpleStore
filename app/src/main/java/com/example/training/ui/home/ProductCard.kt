@@ -8,6 +8,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.training.R
 import com.example.training.models.Product
@@ -23,15 +24,17 @@ fun ProductCard(product: Product, onClick: () -> Unit) {
         Image(
             painter = painterResource(id = R.drawable.ic_shopping_cart),
             contentDescription = null,
-            modifier = Modifier.size(120.dp),
+            modifier = Modifier.size(100.dp),
         )
+        Spacer(Modifier.width(8.dp))
         Column {
             Row(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
                     product.name,
-                    style = MaterialTheme.typography.h4,
+                    style = MaterialTheme.typography.h5,
+                    fontWeight = FontWeight.Bold,
                     modifier = Modifier.fillMaxWidth()
                 )
                 Image(
@@ -46,7 +49,7 @@ fun ProductCard(product: Product, onClick: () -> Unit) {
             )
             Text(
                 "${product.price} €",
-                style = MaterialTheme.typography.body2,
+                style = MaterialTheme.typography.body1,
             )
         }
     }
