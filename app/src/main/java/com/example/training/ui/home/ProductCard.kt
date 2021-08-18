@@ -3,8 +3,11 @@ package com.example.training.ui.home
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Star
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -22,7 +25,7 @@ fun ProductCard(product: Product, onClick: () -> Unit) {
             .clickable(onClick = onClick)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.ic_shopping_cart),
+            painter = painterResource(id = R.drawable.avatar),
             contentDescription = null,
             modifier = Modifier.size(100.dp),
         )
@@ -37,8 +40,8 @@ fun ProductCard(product: Product, onClick: () -> Unit) {
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.fillMaxWidth()
                 )
-                Image(
-                    painter = painterResource(id = R.drawable.ic_star_border),
+                Icon(
+                    Icons.Outlined.Star,
                     contentDescription = null,
                     modifier = Modifier.fillMaxHeight(),
                 )
