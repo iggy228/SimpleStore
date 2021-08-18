@@ -1,4 +1,4 @@
-package com.example.training
+package com.example.simplestore
 
 import org.junit.Test
 

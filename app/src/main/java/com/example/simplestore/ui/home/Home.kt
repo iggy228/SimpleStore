@@ -1,4 +1,4 @@
-package com.example.training.ui.home
+package com.example.simplestore.ui.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -18,16 +18,21 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
-import com.example.training.R
-import com.example.training.models.Product
+import com.example.simplestore.R
+import com.example.simplestore.models.Product
+
+fun navigate() {
+
+}
 
 @Composable
 fun ProductList(products: List<Product>) {
     LazyColumn(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth(),
+        contentPadding = PaddingValues(top = 8.dp)
     ) {
         items(products) { product ->
-            ProductCard(product, onClick = {})
+            ProductCard(product, onClick = { })
         }
     }
 }

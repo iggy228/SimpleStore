@@ -1,4 +1,4 @@
-package com.example.training.ui.theme
+package com.example.simplestore.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

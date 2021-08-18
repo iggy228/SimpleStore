@@ -1,8 +1,9 @@
-package com.example.training.ui.home
+package com.example.simplestore.ui.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -10,11 +11,11 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.training.R
-import com.example.training.models.Product
+import coil.compose.rememberImagePainter
+import com.example.simplestore.models.Product
 
 @Composable
 fun ProductCard(product: Product, onClick: () -> Unit) {
@@ -22,14 +23,14 @@ fun ProductCard(product: Product, onClick: () -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
+            .clip(RoundedCornerShape(8.dp))
             .clickable(onClick = onClick)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.avatar),
+            painter = rememberImagePainter(data = "https://developer.android.com/images/brand/Android_Robot.png"),
             contentDescription = null,
-            modifier = Modifier.size(100.dp),
+            modifier = Modifier.size(100.dp).padding(8.dp),
         )
-        Spacer(Modifier.width(8.dp))
         Column {
             Row(
                 modifier = Modifier.fillMaxWidth()

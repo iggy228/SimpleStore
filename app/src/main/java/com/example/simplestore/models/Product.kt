@@ -1,4 +1,4 @@
-package com.example.training.models
+package com.example.simplestore.models
 
 data class Product(
     var name: String,

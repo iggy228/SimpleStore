@@ -1,4 +1,4 @@
-package com.example.training
+package com.example.simplestore
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -8,8 +8,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.training.ui.home.Home
-import com.example.training.ui.theme.SimpleStoreTheme
+import com.example.simplestore.ui.home.Home
+import com.example.simplestore.ui.theme.SimpleStoreTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
