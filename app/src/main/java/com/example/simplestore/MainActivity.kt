@@ -8,7 +8,11 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.simplestore.ui.home.Home
+import com.example.simplestore.ui.productdetail.ProductDetail
 import com.example.simplestore.ui.theme.SimpleStoreTheme
 
 class MainActivity : ComponentActivity() {
@@ -16,10 +20,22 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            SimpleStoreTheme {
-                Surface(color = MaterialTheme.colors.background) {
-                    Home()
+            SimpleStore()
+        }
+    }
+}
+
+@Composable
+fun SimpleStore() {
+    val navController = rememberNavController()
+
+    SimpleStoreTheme {
+        Surface(color = MaterialTheme.colors.background) {
+            NavHost(navController, startDestination = "home") {
+                composable("home") {
+                    Home(onProductClick = { navController.navigate("product") })
                 }
+                composable("product") { ProductDetail() }
             }
         }
     }
@@ -31,7 +47,7 @@ class MainActivity : ComponentActivity() {
 fun Preview() {
     SimpleStoreTheme {
         Surface(color = MaterialTheme.colors.background) {
-            Home()
+            ProductDetail()
         }
     }
 }

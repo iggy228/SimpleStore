@@ -27,7 +27,7 @@ fun ProductCard(product: Product, onClick: () -> Unit) {
             .clickable(onClick = onClick)
     ) {
         Image(
-            painter = rememberImagePainter(data = "https://developer.android.com/images/brand/Android_Robot.png"),
+            painter = rememberImagePainter("https://developer.android.com/images/brand/Android_Robot.png"),
             contentDescription = null,
             modifier = Modifier.size(100.dp).padding(8.dp),
         )

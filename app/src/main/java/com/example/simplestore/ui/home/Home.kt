@@ -21,24 +21,20 @@ import androidx.compose.ui.unit.dp
 import com.example.simplestore.R
 import com.example.simplestore.models.Product
 
-fun navigate() {
-
-}
-
 @Composable
-fun ProductList(products: List<Product>) {
+fun ProductList(products: List<Product>, onClickItem: () -> Unit) {
     LazyColumn(
         modifier = Modifier.fillMaxWidth(),
         contentPadding = PaddingValues(top = 8.dp)
     ) {
         items(products) { product ->
-            ProductCard(product, onClick = { })
+            ProductCard(product, onClick = onClickItem)
         }
     }
 }
 
 @Composable
-fun Home() {
+fun Home(onProductClick: () -> Unit) {
     var searchInput by remember { mutableStateOf("") }
 
     Scaffold(
@@ -73,10 +69,13 @@ fun Home() {
                     modifier = Modifier.fillMaxWidth(),
                 )
             }
-            ProductList(products = listOf(
-                Product("Balon", "Lietajuci lahky plast",0.19),
-                Product("Balon", "Lietajuci lahky plast", 0.19),
-            ))
+            ProductList(
+                products = listOf(
+                    Product("Balon", "Lietajuci lahky plast", 0.19),
+                    Product("Balon", "Lietajuci lahky plast", 0.19),
+                ),
+                onClickItem = onProductClick
+            )
         }
     }
 }
