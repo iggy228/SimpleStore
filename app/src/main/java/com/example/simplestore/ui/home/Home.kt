@@ -19,6 +19,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import com.example.simplestore.R
+import com.example.simplestore.data.productList
 import com.example.simplestore.models.Product
 
 @Composable
@@ -70,10 +71,7 @@ fun Home(onProductClick: () -> Unit) {
                 )
             }
             ProductList(
-                products = listOf(
-                    Product("Balon", "Lietajuci lahky plast", 0.19),
-                    Product("Balon", "Lietajuci lahky plast", 0.19),
-                ),
+                products = productList(),
                 onClickItem = onProductClick
             )
         }
