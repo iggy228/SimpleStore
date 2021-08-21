@@ -12,6 +12,7 @@ data class Product(
     var shortDescription: String,
     var price: Float,
     var weight: Int,
+    var imageUrl: String?,
     var fullDescription: String? = null,
     var liked: Boolean = false,
 )

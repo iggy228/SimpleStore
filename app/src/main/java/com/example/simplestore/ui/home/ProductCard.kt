@@ -12,9 +12,11 @@ import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
+import com.example.simplestore.R
 import com.example.simplestore.models.Product
 
 @Composable
@@ -27,9 +29,12 @@ fun ProductCard(product: Product, onClick: () -> Unit) {
             .clickable(onClick = onClick)
     ) {
         Image(
-            painter = rememberImagePainter("https://developer.android.com/images/brand/Android_Robot.png"),
+            painter = if (product.imageUrl == null) painterResource(R.drawable.placeholder)
+            else rememberImagePainter(product.imageUrl),
             contentDescription = null,
-            modifier = Modifier.size(100.dp).padding(8.dp),
+            modifier = Modifier
+                .size(100.dp)
+                .padding(8.dp),
         )
         Column {
             Row(

@@ -12,12 +12,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberImagePainter
 import com.example.simplestore.R
 import com.example.simplestore.models.Product
 
 @Composable
 fun ProductDetail() {
-    val product = Product(1, "balon", "lietajuci plat", 0.19f, 10)
+    val product = Product(1, "balon", "lietajuci plat", 0.19f, 10, null)
 
     Scaffold(
         floatingActionButton = { FloatingActionButton(onClick = { /*TODO*/ }) {
@@ -30,7 +31,8 @@ fun ProductDetail() {
                 .fillMaxWidth()
         ) {
             Image(
-                painter = painterResource(R.drawable.avatar),
+                painter = if (product.imageUrl == null) painterResource(R.drawable.placeholder)
+                else rememberImagePainter(product.imageUrl),
                 contentDescription = null,
             )
             Column(
