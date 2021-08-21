@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.simplestore.data.productList
 
 class ProductViewModel: ViewModel() {
-    private val _products: MutableLiveData<List<Product>> = MutableLiveData<List<Product>>(productList())
+    private val _products = MutableLiveData(productList())
     val products: LiveData<List<Product>> = _products
 
     fun getProductById(id: Int): Product? = _products.value?.find {
