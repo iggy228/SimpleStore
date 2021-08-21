@@ -1,7 +1,10 @@
 package com.example.simplestore.ui.productdetail
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -29,11 +32,16 @@ fun ProductDetail() {
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxWidth()
+                .scrollable(
+                    rememberScrollState(),
+                    orientation = Orientation.Vertical
+                )
         ) {
             Image(
                 painter = if (product.imageUrl == null) painterResource(R.drawable.placeholder)
                 else rememberImagePainter(product.imageUrl),
                 contentDescription = null,
+                modifier = Modifier.fillMaxWidth().height(250.dp)
             )
             Column(
                 modifier = Modifier.padding(16.dp)
@@ -59,6 +67,7 @@ fun ProductDetail() {
                     product.fullDescription ?: product.shortDescription,
                     modifier = Modifier.weight(1f)
                 )
+                Spacer(Modifier.height(16.dp))
                 Text("${product.price}€", style = MaterialTheme.typography.h6)
                 Text("${product.weight}g")
             }
